@@ -430,7 +430,45 @@ main {
     border-radius: 100%;
     width: 28px;
     height: 28px;
-    margin-left: 10px;
+    margin-left: 5px;
+    display: grid;
+    grid-template-rows: 100% 0px;
+    grid-template-areas: "."
+                         "tooltip_status";
+}
+
+.tooltip_status {
+    grid-area: tooltip_status;
+    min-height: 13px;
+    max-height: 13px;
+    margin-top: 20px;
+    padding: 8px;
+    padding-top: 0px;
+    border-radius: 5px 5px 0px 0px;
+    background-color: rgba(78, 75, 85, 0.5);
+    border-bottom: #000 2px solid;
+    display: none;
+    grid-template-rows: 0px 13px;
+    grid-template-columns: 0px minmax(55px, 40px);
+    justify-items: center;
+    grid-template-areas: "arrow ."
+                         ". text";
+}
+
+.tooltip_status:before {
+    grid-area: arrow;
+    border: 10px solid transparent;
+    border-bottom-color: rgba(78, 75, 85, 0.5);
+    content: "";
+    margin-top: -50px;
+    margin-left: 13px;
+}
+
+.status_text {
+    grid-area: text;
+    font-size: 12pt;
+    margin: 0;
+    padding: 0;
 }
 
 footer {
