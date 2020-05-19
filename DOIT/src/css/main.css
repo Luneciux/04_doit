@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+
+@media (min-width: 1000px){
+
 html, body, p, ul, li, a{
     margin: 0;
     padding: 0;
@@ -17,6 +20,66 @@ a {
     text-decoration: none;
     color: black;
 }
+
+#logo_intro {
+    position: absolute;
+    top: 0px;
+    left: 40%;
+    background-color: #000;
+    border-radius: 0px 0px 30px 30px;
+    width: 20%;
+    height: 0px;
+    animation-name: intro;
+    animation-duration: 1500ms;
+    animation-iteration-count: initial;
+    animation-direction: normal;
+}
+
+@keyframes intro {
+    0% {
+        opacity: 0;
+        height: 0px;
+    }
+    25%{
+        opacity: 1;
+    }
+    90%{
+        height: 60%;
+        opacity: 1;
+    }
+    100% {
+        height: 0%;
+        opacity: 0;
+    }
+}
+
+#logo_intro img {
+    width: 100%;  
+    animation-name: intro_img;
+    animation-duration: 1500ms;
+    animation-iteration-count: initial;
+    animation-direction: normal;
+    opacity: 0;
+}
+
+@keyframes intro_img {
+    0% {
+        opacity: 0;
+    }
+    25%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 
 .container {
     width: 100%;
@@ -182,7 +245,8 @@ aside .logo a {
 }
 
 #config {
-    grid-area: user_name;    
+    grid-area: user_name;  
+    display: grid;  
     grid-template-columns: minmax(200px, 200px) 30px;
     grid-template-areas: "main_user_input main_user_button";
     padding: 3px 0px 0px 15px;
@@ -481,14 +545,428 @@ footer {
     background-color: #D7C5FF;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 footer p {
-    margin-right: 10px;
+    margin-left: 10px;
     font-family: roboto;
 }
 
 footer .vs {
     justify-self: flex-start;
+}
+}
+
+
+
+
+
+
+
+
+@media (max-width: 999px) {
+    body{
+        width: 100%;
+        height: 100%;
+    }
+    html, body, p, ul, li, a{
+        margin: 0;
+        padding: 0;
+    }
+    
+    li {
+        list-style: none;
+    }
+    
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    #logo_intro {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.822);
+        max-width: 100%;
+        height: 100%;
+        max-height: 100%;
+        padding-left: 20%;
+        padding-top: 20%;
+        animation-name: intro;
+        animation-duration: 1500ms;
+        animation-iteration-count: initial;
+        animation-direction: normal;
+    }
+    
+    @keyframes intro {
+        0% {
+            opacity: 0;
+        }
+        25%{
+            opacity: 1;
+        }
+        90%{
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            display: none;
+        }
+    }
+    
+    #logo_intro img {
+        width: 70%;
+        animation-name: intro_img;
+        animation-duration: 1500ms;
+        animation-iteration-count: initial;
+        animation-direction: normal;
+        opacity: 0;
+    }
+    
+    @keyframes intro_img {
+        0% {
+            opacity: 0;
+        }
+        25%{
+            opacity: 0;
+        }
+        50%{
+            opacity: 1;
+        }
+        90%{
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            display: none;
+        }
+    }
+   
+    aside {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: "logo"
+                             "functions"
+                             "footer"
+        ;
+        justify-content: center;
+        justify-items: center;
+        transition: .1s;
+        background-color: rgba(24, 24, 24, 0.562);
+        z-index: 300;
+    }
+    
+    aside .logo{
+        background-color: #000;
+        width: 80px;
+        height: 120px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        display: grid;
+        grid-template-columns: 0px 100%;
+        grid-template-areas: "line img";
+        align-items: center;
+        justify-items: center;
+    }
+    
+    aside .logo img{
+        width: 70px;
+        height: 90px;
+        grid-area: img;
+    }
+    
+    aside .line_style {
+        margin-left: -4px;
+        width: 4px;
+        height: 60px;
+        align-self: flex-start;
+        background-color: #7232FD;
+        grid-area: line;
+    }
+    
+    aside .logo a {
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    
+    .functions {
+        display: grid;
+        width: 140%;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "delete_all"
+                             "settings"
+        ;
+        justify-items: center;
+        align-items: center;
+    }
+    
+    .functions .delete_all {
+        grid-area: delete_all;
+        width: 100%;
+        display: grid;
+        grid-template-rows: 80% 20%;
+        grid-template-columns: 100%;
+        grid-template-areas: "button"
+                             "label";
+        justify-items: center;                             
+        font-family: roboto;
+        font-weight: 500;
+        color: #fff;
+    }
+
+    .functions .delete_all img{
+        background-color: #fff;
+        width: 100%;
+        justify-self: center;
+        margin-bottom: 20px;
+        border-radius: 15px;
+    }
+
+    .functions #delete_all {
+        grid-area: button;
+        width: 30%;
+        border-radius: 15px;
+    }
+
+    .functions .delete_all p{
+        grid-area: label;
+        margin-bottom: 20px;
+        border-radius: 25px;
+        color: #fff;
+    }
+     
+    #config {
+        grid-area: settings;
+        display: grid;    
+        width: 100%;
+        grid-template-columns: 80% 20%;
+        grid-template-areas: "main_user_input main_user_button";
+        transition: 1s;
+    }
+
+    #main_user_input {
+        grid-area: main_user_input;
+        border: none;
+        height: 200%;
+        width: 100%;
+        border-radius: 10px 0px 0px 10px;
+        padding-left: 10px;
+        font-family: roboto;
+        color: #000;
+        font-weight: 600;
+    }
+    
+    #main_user_input:focus {
+        outline: none;
+        border: #7232FD 1px solid;
+    }
+
+
+    #main_user_button {
+        grid-area: main_user_button;
+        height: 200%;
+        border-radius: 0px 10px 10px 0px;
+        background-color: #fff;
+        box-shadow: rgba(130, 130, 130, .6) 1px 1px 3px; 
+    }
+
+    #add_button_img1 {
+        width: 100%;
+        height: 100%;
+    }
+
+    main {
+        display: grid;
+        width: 100%;
+        justify-items: center;
+        grid-template-rows: 100%;
+        grid-template-areas: "todos"
+        ;
+    }
+
+    /*MUDAR DEPOIS*/
+    #app {    
+        position: fixed;
+        background-color: rgba(131, 74, 255, 0.836);
+        border-radius: 10px 10px 0px 0px;
+        width: 90%;
+        height: 60px;
+        bottom: 0px;
+        left: 5%;
+        display: grid;
+        grid-template-columns: 80% 20%;
+        grid-template-areas: "main_input main_button";
+        transition: 1s;
+        z-index: 250;
+    }
+    
+    /*MUDAR DEPOIS*/
+    #main_input {
+        grid-area: main_input;
+        border: none;
+        display: grid;
+        min-height: 65%;
+        max-height: 65%;
+        border-radius: 10px 0px 0px 10px;
+        box-shadow: rgba(130, 130, 130, .6) 1px 1px 3px; 
+        padding-left: 10px;
+        font-family: roboto;
+        color: #000;
+        font-weight: 600;
+        transition: .1s;
+    }
+    
+    /*MUDAR DEPOIS*/
+    #main_input:focus {
+        outline: none;
+        border: #7232FD 1px solid;
+    }
+    
+    /*MUDAR DEPOIS*/
+    #main_input:left {
+        border: none;
+    }
+    
+    /*MUDAR DEPOIS*/
+    #main_button {
+        grid-area: main_button;
+        min-height: 65%;
+        max-height: 65%;
+        border-radius: 0px 10px 10px 0px;
+        background-color: #fff;
+        box-shadow: rgba(130, 130, 130, .6) 1px 1px 3px; 
+        transition: 1s;
+    }
+    
+    #add_button_img2 {
+        width: 100%;
+        height: 100%;
+    }
+
+    
+    #todo_interface {
+        width: 100%;
+        margin-right: 0px;
+        margin-left: 0px;
+        background-color: #fff;
+        font-family: roboto;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #user_name {
+        min-width: 40%;
+        max-width: 40%;
+        padding: 30px;
+        padding-right: 0px;
+        font-size: 25pt;
+        font-weight: 600;
+    }
+    
+    #todos_container {
+        width: 100%;
+        padding-bottom: 100px;
+        font-size: 19pt;
+        display: grid;
+        grid-template-columns: 100%;
+        justify-items: center;
+    }
+    
+    #todos_container > li{
+        min-height: 200px;
+        width: 80%;
+        margin: 20px;
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: 1.5px 3px 4px rgba(130, 130, 130, .6);
+        display: grid;
+        grid-template-columns: 1fr 35px;
+        grid-template-rows: 0px 1fr 4fr 35px;
+        grid-template-areas: "border_style border_style"
+                             "creation close"
+                             "content content"
+                             ". status";
+    }
+    
+    
+    
+    .creation {
+        grid-area: creation;
+        font-size: 12pt; 
+        align-self: center;
+        justify-self: flex-start;
+        margin-left: 10px;
+        color: rgba(65, 65, 65, 0.6);
+    }
+    
+    .close {
+        grid-area: close;
+        border-radius: 100%;
+        width: 23px;
+        height: 23px;
+        align-self: center;
+        justify-self: center;
+        transition: .1s;
+    }
+    
+    .close img {
+        width: 100%;
+        height: 100%;
+    }
+    .content {
+        grid-area: content;
+        background-color: #fff;
+        padding: 10px;
+        word-wrap: break-word;
+    }
+    
+    .status {
+        grid-area: status;
+        border-radius: 100%;
+        width: 80%;
+        height: 80%;
+        align-self: flex-start;
+        justify-self: flex-start;
+        transition: 1s;
+    }
+    
+    .border_style {
+        grid-area: border_style;
+        border-top: #7232FD 2px solid;
+        border-left: #7232FD 2px solid;
+        border-right: #7232FD 2px solid;
+        border-radius: 20px 20px 0px 0px;
+        height: 20px;
+    }
+
+    #config_show {
+        position: absolute;
+        top: 10px;
+        left: 80%;
+        width: 10%;
+        z-index: 350;
+    }
+
+    #config_show img {
+        width: 100%;
+    }
+
+    #status_menu {
+        position: fixed;
+        bottom: 80px;
+        left: 5%;
+        width: 100%;
+        height: 40px;
+        z-index: 255;
+    }
+
+    #status_menu a{
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        z-index: 255;
+        margin-right: 30px;
+    }
 }
