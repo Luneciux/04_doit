@@ -1,2 +1,2 @@
-# Doit - Test 1
+# Doit
 Um aplicativo pra ajudar a organizar workflow e tarefas diárias... (base: starter rocketseat)
